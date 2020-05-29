@@ -1,0 +1,34 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="MySwitch" parent="Theme.AppCompat.Light">
+        <!-- активное состояние (30% прозрачности для фона) -->
+        <item name="colorControlActivated">@color/colorAccent</item>
+
+        <!-- неактивное состояние ползунка -->
+        <item name="colorSwitchThumbNormal">@color/colorAccent</item>
+
+        <!-- цвет дорожки для неактивного состояния (30% прозрачности) -->
+        <item name="android:colorForeground">@color/colorGray</item>
+
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+
+        <item name="android:layout_centerVertical">true</item>
+
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+    <style name="MySeekBar" parent="Widget.AppCompat.SeekBar">
+        <item name="android:progressBackgroundTint">@color/colorPrimaryDark</item>
+        <item name="android:progressTint">@color/colorPrimaryDark</item>
+        <item name="android:colorControlActivated">@color/colorPrimaryDark</item>
+    </style>
+
+</resources>

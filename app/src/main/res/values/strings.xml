@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Flashlight (Фонарик)</string>
+    <string name="push_me">Push me</string>
+    <string name="very_scary">VERY SCARY</string>
+    <string name="eng">Eng</string>
+    <string name="rus">Rus</string>
+    <string name="VeryScary">VERY SCARY</string>
+    <string name="PushMe">Push me</string>
+    <string name="not_scary">NOT SCARY NOW</string>
+    <string name="banner_ad_unit_id">ca-app-pub-2630012114915177/5567071850</string>
+
+</resources>
