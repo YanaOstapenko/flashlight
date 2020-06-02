@@ -3,10 +3,8 @@ package ru.ostapenkoyanko.myflashlight;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Color;
+
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -22,7 +20,6 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
-import static ru.ostapenkoyanko.myflashlight.R.style.MySeekBar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private SeekBar BackLightControl;
     private TextView BackLightSetting;
     private float saveBackLightValue;
+    float defaultBrightness;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         textViewEng = findViewById(R.id.textView1);
         textViewRus = findViewById(R.id.textView2);
         Switch switchEnableButton = findViewById(R.id.switch1);
-        final float defaultBrightness = getWindow().getAttributes().screenBrightness;
+        defaultBrightness = getWindow().getAttributes().screenBrightness;
         saveBackLightValue = defaultBrightness;
 
 
@@ -260,6 +258,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy () {
+        WindowManager.LayoutParams defaultParams = getWindow().getAttributes();
+        defaultParams.screenBrightness = defaultBrightness;
+        getWindow().setAttributes(defaultParams);
         flashClass.flashOff();
         super.onDestroy();
     }
