@@ -8,5 +8,10 @@
     <string name="PushMe">Push me</string>
     <string name="not_scary">NOT SCARY NOW</string>
     <string name="banner_ad_unit_id">ca-app-pub-2630012114915177/5567071850</string>
+    <string name="strashno">ОЧЕНЬ СТРАШНО</string>
+    <string name="ne_strashno">ТЕПЕРЬ НЕ СТРАШНО</string>
+    <string name="najmi">Нажми на меня</string>
+    <string name="ang">Анг</string>
+    <string name="russkii">Рус</string>
 
 </resources>
