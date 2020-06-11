@@ -2,9 +2,7 @@ package ru.ostapenkoyanko.myflashlight;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.content.Context;
-
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -18,9 +16,7 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
-
 public class MainActivity extends AppCompatActivity {
-
     private FlashClass flashClass = new FlashClass(this);
     private ImageButton bFlash;
     private ConstraintLayout constFon;
@@ -33,13 +29,10 @@ public class MainActivity extends AppCompatActivity {
     private TextView backLightSetting;
     private float saveBackLightValue;
     float defaultBrightness;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
         bFlash = findViewById(R.id.custom_button);
         constFon = findViewById(R.id.fon);
         textViewPushMe = findViewById(R.id.textView);
@@ -50,16 +43,11 @@ public class MainActivity extends AppCompatActivity {
         Switch switchEnableButton = findViewById(R.id.switch1);
         defaultBrightness = getWindow().getAttributes().screenBrightness;
         saveBackLightValue = defaultBrightness;
-
-
         backLightControl = findViewById(R.id.backlightcontrolid);
         backLightSetting = findViewById(R.id.backlightsettingid);
-
         backLightControl.setVisibility(View.INVISIBLE);
 
-
         backLightControl.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
-
             @Override
             public void onProgressChanged(SeekBar arg0, int arg1, boolean arg2) {
                 // TODO Auto-generated method stub
@@ -81,14 +69,12 @@ public class MainActivity extends AppCompatActivity {
                 // TODO Auto-generated method stub
 
             }});
-
         setTunerPopoverSize();
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
         });
-
         switchEnableButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -107,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
         bFlash.setOnClickListener(new View.OnClickListener() {
 
 
@@ -141,10 +126,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
     private void setTunerPopoverSize() {
         int screenDensity = getScreenDensity( this );
-
         if (screenDensity == DisplayMetrics.DENSITY_LOW) {
             bFlash.setImageResource(R.drawable.cust_button_small);
             textViewVeryScary.setTextSize(16);
@@ -194,10 +177,8 @@ public class MainActivity extends AppCompatActivity {
             textViewPushMe.setTextSize(20);
         }
     }
-
     private void setTunerPopoverSize2() {
         int screenDensity = getScreenDensity( this );
-
         if (screenDensity == DisplayMetrics.DENSITY_LOW) {
             bFlash.setImageResource(R.drawable.cust_button2_small);
         }  else if (screenDensity == DisplayMetrics.DENSITY_MEDIUM) {
@@ -214,7 +195,6 @@ public class MainActivity extends AppCompatActivity {
             bFlash.setImageResource(R.drawable.cust_button2_default);
         }
     }
-
     public static int getScreenDensity(Context context) {
         int density = context.getResources().getDisplayMetrics().densityDpi;
         switch(density)
@@ -235,7 +215,6 @@ public class MainActivity extends AppCompatActivity {
                 return DisplayMetrics.DENSITY_DEFAULT;
         }
     }
-
     @Override
     protected void onDestroy () {
         WindowManager.LayoutParams defaultParams = getWindow().getAttributes();
@@ -245,4 +224,3 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
     }
 }
-

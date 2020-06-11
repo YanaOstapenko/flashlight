@@ -3,11 +3,9 @@ package ru.ostapenkoyanko.myflashlight;
 import android.content.Context;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
-
 public class FlashClass {
     private boolean flash_on = false;
     private Context context;
-
     public FlashClass(Context context) {
         this.context = context;
     }
@@ -29,13 +27,10 @@ public class FlashClass {
             String cameraId = cameraManager.getCameraIdList()[0];
             cameraManager.setTorchMode(cameraId, false);
             flash_on = false;
-
         } catch (CameraAccessException e) {
             e.printStackTrace();
         }
     }
-
-
     public boolean isFlash_on() {
         return flash_on;
     }

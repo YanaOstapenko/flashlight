@@ -3,8 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="ru.ostapenkoyanko.myflashlight">
 
-
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,7 +18,6 @@
             android:name="com.google.android.service"
             android:resource="@drawable/cust_button_default"
              />
-
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
@@ -32,5 +29,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
