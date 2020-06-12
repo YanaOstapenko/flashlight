@@ -27,8 +27,10 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewRus;
     private SeekBar backLightControl;
     private TextView backLightSetting;
+    private TextView tv3;
     private float saveBackLightValue;
     float defaultBrightness;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         textViewNotScary = findViewById(R.id.textView5);
         textViewEng = findViewById(R.id.textView1);
         textViewRus = findViewById(R.id.textView2);
+        tv3 = findViewById(R.id.textView3);
         Switch switchEnableButton = findViewById(R.id.switch1);
         defaultBrightness = getWindow().getAttributes().screenBrightness;
         saveBackLightValue = defaultBrightness;
@@ -103,6 +106,12 @@ public class MainActivity extends AppCompatActivity {
                     layoutParams.screenBrightness = saveBackLightValue;
                     getWindow().setAttributes(layoutParams);
                     flashClass.flashOn();
+                    if (flashClass.light == false){
+                        tv3.setText("No have a camera flash");
+                    }
+                    else {
+                        tv3.setText("");
+                    }
                     setTunerPopoverSize2();
                     constFon.setBackgroundResource(R.color.colorPrimary);
                     textViewPushMe.setTextColor(getResources().getColor(R.color.colorPrimaryDark, getTheme()));
@@ -115,6 +124,12 @@ public class MainActivity extends AppCompatActivity {
                     layoutParams.screenBrightness = defaultBrightness;
                     getWindow().setAttributes(layoutParams);
                     flashClass.flashOff();
+                    if (flashClass.light == false){
+                        tv3.setText("No have a camera flash");
+                    }
+                    else {
+                        tv3.setText("");
+                    }
                     setTunerPopoverSize();
                     constFon.setBackgroundResource(R.color.colorPrimaryDark);
                     textViewPushMe.setTextColor(getResources().getColor(R.color.colorPrimary, getTheme()));
