@@ -12,6 +12,8 @@ import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
@@ -27,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewRus;
     private SeekBar backLightControl;
     private TextView backLightSetting;
-    private TextView tv3;
     private float saveBackLightValue;
     float defaultBrightness;
+    Context mycontext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
         textViewNotScary = findViewById(R.id.textView5);
         textViewEng = findViewById(R.id.textView1);
         textViewRus = findViewById(R.id.textView2);
-        tv3 = findViewById(R.id.textView3);
         Switch switchEnableButton = findViewById(R.id.switch1);
         defaultBrightness = getWindow().getAttributes().screenBrightness;
         saveBackLightValue = defaultBrightness;
@@ -101,16 +102,14 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                mycontext = getBaseContext();
                 WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
                 if(!flashClass.isFlash_on()) {
                     layoutParams.screenBrightness = saveBackLightValue;
                     getWindow().setAttributes(layoutParams);
                     flashClass.flashOn();
-                    if (flashClass.light == false){
-                        tv3.setText("No have a camera flash");
-                    }
-                    else {
-                        tv3.setText("");
+                    if (!flashClass.light){
+                        Toast.makeText(mycontext, "No have camera flash", Toast.LENGTH_SHORT).show();
                     }
                     setTunerPopoverSize2();
                     constFon.setBackgroundResource(R.color.colorPrimary);
@@ -124,12 +123,6 @@ public class MainActivity extends AppCompatActivity {
                     layoutParams.screenBrightness = defaultBrightness;
                     getWindow().setAttributes(layoutParams);
                     flashClass.flashOff();
-                    if (flashClass.light == false){
-                        tv3.setText("No have a camera flash");
-                    }
-                    else {
-                        tv3.setText("");
-                    }
                     setTunerPopoverSize();
                     constFon.setBackgroundResource(R.color.colorPrimaryDark);
                     textViewPushMe.setTextColor(getResources().getColor(R.color.colorPrimary, getTheme()));
@@ -151,14 +144,14 @@ public class MainActivity extends AppCompatActivity {
             textViewEng.setTextSize(18);
             textViewRus.setTextSize(18);
         }  else if (screenDensity == DisplayMetrics.DENSITY_MEDIUM) {
-            bFlash.setImageResource(R.drawable.cust_button_small);
+            bFlash.setImageResource(R.drawable.cust_button_default);
             textViewVeryScary.setTextSize(20);
             textViewNotScary.setTextSize(20);
             textViewPushMe.setTextSize(16);
             textViewEng.setTextSize(16);
             textViewRus.setTextSize(16);
         } else if (screenDensity == DisplayMetrics.DENSITY_HIGH) {
-            bFlash.setImageResource(R.drawable.cust_button_small);
+            bFlash.setImageResource(R.drawable.cust_button_default);
             textViewVeryScary.setTextSize(18);
             textViewNotScary.setTextSize(18);
             textViewPushMe.setTextSize(12);
@@ -197,9 +190,9 @@ public class MainActivity extends AppCompatActivity {
         if (screenDensity == DisplayMetrics.DENSITY_LOW) {
             bFlash.setImageResource(R.drawable.cust_button2_small);
         }  else if (screenDensity == DisplayMetrics.DENSITY_MEDIUM) {
-            bFlash.setImageResource(R.drawable.cust_button2_small);
+            bFlash.setImageResource(R.drawable.cust_button2_default);
         } else if (screenDensity == DisplayMetrics.DENSITY_HIGH) {
-            bFlash.setImageResource(R.drawable.cust_button2_small);
+            bFlash.setImageResource(R.drawable.cust_button2_default);
         } else if (screenDensity == DisplayMetrics.DENSITY_XHIGH) {
             bFlash.setImageResource(R.drawable.cust_button2_default);
         } else if (screenDensity == DisplayMetrics.DENSITY_XXHIGH) {
