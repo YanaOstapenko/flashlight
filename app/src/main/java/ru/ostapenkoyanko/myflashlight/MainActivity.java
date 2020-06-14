@@ -2,13 +2,19 @@ package ru.ostapenkoyanko.myflashlight;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+
+import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -109,7 +115,12 @@ public class MainActivity extends AppCompatActivity {
                     getWindow().setAttributes(layoutParams);
                     flashClass.flashOn();
                     if (!flashClass.light){
-                        Toast.makeText(mycontext, "No have camera flash", Toast.LENGTH_SHORT).show();
+                        Toast toast = Toast.makeText(mycontext, "No have camera flash \n or low battery", Toast.LENGTH_SHORT);
+                        LinearLayout toastLayout = (LinearLayout) toast.getView();
+                        TextView toastTV = (TextView) toastLayout.getChildAt(0);
+                        toastTV.setTextSize(10);
+                        toastTV.setGravity(Gravity.CENTER_HORIZONTAL);
+                        toast.show();
                     }
                     setTunerPopoverSize2();
                     constFon.setBackgroundResource(R.color.colorPrimary);
@@ -144,21 +155,21 @@ public class MainActivity extends AppCompatActivity {
             textViewEng.setTextSize(12);
             textViewRus.setTextSize(12);
         }  else if (screenDensity == DisplayMetrics.DENSITY_MEDIUM) {
-            bFlash.setImageResource(R.drawable.cust_button_default);
+            bFlash.setImageResource(R.drawable.cust_button_small);
             textViewVeryScary.setTextSize(20);
             textViewNotScary.setTextSize(20);
             textViewPushMe.setTextSize(16);
             textViewEng.setTextSize(16);
             textViewRus.setTextSize(16);
         } else if (screenDensity == DisplayMetrics.DENSITY_HIGH) {
-            bFlash.setImageResource(R.drawable.cust_button_default);
+            bFlash.setImageResource(R.drawable.cust_button_xsmall);
             textViewVeryScary.setTextSize(16);
             textViewNotScary.setTextSize(16);
             textViewPushMe.setTextSize(14);
             textViewEng.setTextSize(14);
             textViewRus.setTextSize(14);
         } else if (screenDensity == DisplayMetrics.DENSITY_XHIGH) {
-            bFlash.setImageResource(R.drawable.cust_button_default);
+            bFlash.setImageResource(R.drawable.cust_button_xsmall);
             textViewVeryScary.setTextSize(20);
             textViewNotScary.setTextSize(20);
             textViewPushMe.setTextSize(14);
@@ -179,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
             textViewEng.setTextSize(20);
             textViewRus.setTextSize(20);
         } else{
-            bFlash.setImageResource(R.drawable.cust_button_default);
+            bFlash.setImageResource(R.drawable.cust_button_xsmall);
             textViewVeryScary.setTextSize(26);
             textViewNotScary.setTextSize(26);
             textViewPushMe.setTextSize(20);
@@ -190,17 +201,17 @@ public class MainActivity extends AppCompatActivity {
         if (screenDensity == DisplayMetrics.DENSITY_LOW) {
             bFlash.setImageResource(R.drawable.cust_button2_small);
         }  else if (screenDensity == DisplayMetrics.DENSITY_MEDIUM) {
-            bFlash.setImageResource(R.drawable.cust_button2_default);
+            bFlash.setImageResource(R.drawable.cust_button2_small);
         } else if (screenDensity == DisplayMetrics.DENSITY_HIGH) {
-            bFlash.setImageResource(R.drawable.cust_button2_default);
+            bFlash.setImageResource(R.drawable.cust_button2_xsmall);
         } else if (screenDensity == DisplayMetrics.DENSITY_XHIGH) {
-            bFlash.setImageResource(R.drawable.cust_button2_default);
+            bFlash.setImageResource(R.drawable.cust_button2_xsmall);
         } else if (screenDensity == DisplayMetrics.DENSITY_XXHIGH) {
             bFlash.setImageResource(R.drawable.cust_button2_default);
         } else if (screenDensity == DisplayMetrics.DENSITY_XXXHIGH) {
             bFlash.setImageResource(R.drawable.cust_button2_default);
         } else{
-            bFlash.setImageResource(R.drawable.cust_button2_default);
+            bFlash.setImageResource(R.drawable.cust_button2_xsmall);
         }
     }
     public static int getScreenDensity(Context context) {
