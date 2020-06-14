@@ -138,11 +138,11 @@ public class MainActivity extends AppCompatActivity {
         int screenDensity = getScreenDensity( this );
         if (screenDensity == DisplayMetrics.DENSITY_LOW) {
             bFlash.setImageResource(R.drawable.cust_button_small);
-            textViewVeryScary.setTextSize(22);
-            textViewNotScary.setTextSize(22);
-            textViewPushMe.setTextSize(18);
-            textViewEng.setTextSize(18);
-            textViewRus.setTextSize(18);
+            textViewVeryScary.setTextSize(16);
+            textViewNotScary.setTextSize(16);
+            textViewPushMe.setTextSize(12);
+            textViewEng.setTextSize(12);
+            textViewRus.setTextSize(12);
         }  else if (screenDensity == DisplayMetrics.DENSITY_MEDIUM) {
             bFlash.setImageResource(R.drawable.cust_button_default);
             textViewVeryScary.setTextSize(20);
@@ -152,11 +152,11 @@ public class MainActivity extends AppCompatActivity {
             textViewRus.setTextSize(16);
         } else if (screenDensity == DisplayMetrics.DENSITY_HIGH) {
             bFlash.setImageResource(R.drawable.cust_button_default);
-            textViewVeryScary.setTextSize(18);
-            textViewNotScary.setTextSize(18);
-            textViewPushMe.setTextSize(12);
-            textViewEng.setTextSize(12);
-            textViewRus.setTextSize(12);
+            textViewVeryScary.setTextSize(16);
+            textViewNotScary.setTextSize(16);
+            textViewPushMe.setTextSize(14);
+            textViewEng.setTextSize(14);
+            textViewRus.setTextSize(14);
         } else if (screenDensity == DisplayMetrics.DENSITY_XHIGH) {
             bFlash.setImageResource(R.drawable.cust_button_default);
             textViewVeryScary.setTextSize(20);
